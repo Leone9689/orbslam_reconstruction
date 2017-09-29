@@ -1,0 +1,16 @@
+<!-- This file shows the most important parameters in their default settings,
+     to make them easily available for beginners.
+
+     The openni driver is started automatically -->
+<launch>
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch"/>
+  <node pkg="orbslam2_ros" type="RGBD" name="orbslam2_ros" args="$(find orbslam2_ros)/Data/ORBvoc.bin $(find orbslam2_ros)/Data/Kinect.yaml" output="screen" > 
+  <remap from="/vslam/rgb/image_raw" to="/kinect2/qhd/image_color_rect"/>
+  <remap from="/vslam/depth_registered/image_raw" to="/kinect2/qhd/image_depth_rect"/>
+  <remap from="/vslam/depth/camera_info" to="/kinect2/qhd/camera_info"/>
+  <remap from="/imu" to="torso_lift_imu/data"/>
+ 
+  <param name="use_pango_viewer" type="bool" value="false" />
+  <param name="use_imu_data" type="bool" value="false" />
+  </node>
+</launch>

@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC  -Wall -mavx2 -funroll-loops -DOWNAVX -fopenmp -O3 -DNDEBUG   -shared -Wl,-soname,libcamerautils.so -o ../../lib/libcamerautils.so CMakeFiles/camerautils.dir/camerautils.cpp.o 
